@@ -1,32 +1,9 @@
-import BarChart from "components/BarChart";
-import DataTable from "components/DataTable";
-import DonutChar from "components/DonutChart";
-import Footer from "components/Footer";
-import NavBar from "components/NavBar";
+import Rautes from "Rautes";
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <div className="container">
-        <h1 className="text-primary py-3">DashBoard de vendas</h1>
-        <div className="row px-3">
-          <div className="col-sm-6">
-            <h5 className="text-secondary">Taxa de sucesso (%)</h5>
-            <BarChart />
-          </div>
-          <div className="col-sm-6">
-            <h5 className="text-secondary">Taxa de sucesso (%)</h5>
-            <DonutChar />
-          </div>
-        </div>
-        <div className="py-3">
-          <h5 className="text-primary">Todas vendas</h5>
-        </div>
-        <DataTable />
-      </div>
-      <Footer />
-    </>
+
+    <Rautes />
   );
 }
 export default App;
