@@ -6,7 +6,6 @@ import com.devsuperior.dsvendas.entities.Seller;
 
 public class SaleSumDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
 	private String salerName;
 	private Double sum;
 	
