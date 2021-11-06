@@ -1,10 +1,12 @@
-import dsdark from 'assets/img/ds-dark.svg';
+
+import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
         <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-light border-bottom shadow-sm">
             <div className="container">
                 <nav className="my-2 my-md-0 mr-md-3">
-                    <img src={dsdark} alt="DevSuperior" width="120" />
+                <Link className="navbar-brand" to="/">Home</Link>
+                <Link className="navbar-brand" to="/dashboard">Dashboard</Link>
                 </nav>
             </div>
         </div>

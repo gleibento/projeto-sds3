@@ -1,10 +1,18 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import Footer from 'components/Footer';
+import NavBar from 'components/NavBar';
+
 const Home = () => {
     return (
-        <div>
-            <h1>Dashboard</h1>
-
-        </div>
-        
+        <>
+            <NavBar />
+            <div className="container">
+                <main>
+                    <h3>Conteudos</h3>
+                </main>
+            </div>
+            <Footer />
+        </>
     );
 }
 
