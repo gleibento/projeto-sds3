@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import Chart from 'react-apexcharts';
 import { BASE_URL } from 'utils/requests';
 import { SaleSum } from 'types/sale';
+import { useEffect, useState } from 'react';
 
 
 type ChartData = {
@@ -9,21 +11,21 @@ type ChartData = {
     series: number[];
 }
 const DonutChar = () => {
-    let ChartData: ChartData = { labels: [], series: [] };
 
-    axios.get(`${BASE_URL}/sales/sum-by-seller`).then(response => {
-        const data = response.data as SaleSum[];
-        const myLabels = data.map(x => x.salerName);
-        const mySeries = data.map(x => x.sum);
-        ChartData = { labels: myLabels, series: mySeries };
 
-        console.log(ChartData);
-    });
+    const [ChartData, setChartData] = useState<ChartData>({ labels: [], series: [] });
 
-    const mockData = {
-        series: [477138, 499928, 444867, 220426, 473088],
-        labels: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
-    }
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales/sum-by-seller`)
+            .then(response => {
+                const data = response.data as SaleSum[];
+                const myLabels = data.map(x => x.salerName);
+                const mySeries = data.map(x => x.sum);
+                setChartData({ labels: myLabels, series: mySeries });
+
+            });
+
+    }, []);
 
     const options = {
         legend: {
@@ -32,8 +34,8 @@ const DonutChar = () => {
     }
     return (
         <Chart
-            options={{ ...options, labels: mockData.labels }}
-            series={mockData.series}
+            options={{ ...options, labels: ChartData.labels }}
+            series={ChartData.series}
             type="donut"
             height="240"
 
