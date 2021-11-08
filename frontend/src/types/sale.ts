@@ -8,16 +8,16 @@ export type Sale = {
     date: string;
     seller: Seller;
 }
-export type SalePAge = {
-    content: Sale[];
+export type SalePage = {
+    content?: Sale[];
     last: boolean;
     totalElements: number;
     totalPages: number;
-    size: number;
+    size?: number;
     number: number;
     first: boolean;
-    numberOfElements: number;
-    empty: boolean;
+    numberOfElements?: number;
+    empty?: boolean;
 }
 export type SaleSum = {
     salerName: string;
